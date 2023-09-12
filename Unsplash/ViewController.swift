@@ -24,9 +24,6 @@ class ViewController: UIViewController {
         let ageDescription = StringKey.age_result.localized(number: 13)
         resultLabel.text = ageDescription
         
-        
-        let cameraVC = UIImagePickerController(rootViewController: self)
-        present(cameraVC, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
