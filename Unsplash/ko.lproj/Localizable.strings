@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Unsplash
+
+  Created by 서동운 on 9/11/23.
+  
+*/
+
+"nickname_placeholder" = "닉네임을 입력해주세요.";
+
+"nickname_result" = "이름이 %@입니다";
+
+"age_result" = "당신의 나이는 %d살 입니다";
