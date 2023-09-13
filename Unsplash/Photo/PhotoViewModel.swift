@@ -9,7 +9,7 @@ import Foundation
 
 class PhotoViewModel {
     
-    var photo = Observable(value:Photo(total: 0, total_pages: 0, results: []))
+    var photo = Observable(value: Photo(total: 0, total_pages: 0, results: []))
     
     var numberOfRowsInSection: Int {
         photo.value.results?.count ?? 0
@@ -23,6 +23,7 @@ class PhotoViewModel {
     }
     
     func data(at indexPath: IndexPath) -> PhotoResult? {
-        photo.value.results?[indexPath.row]
+        let photoResult = photo.value.results?[indexPath.row]
+        return photoResult
     }
 }

@@ -29,6 +29,8 @@
 		7205FA672AB02B70008E6C4C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA662AB02B70008E6C4C /* PhotoViewController.swift */; };
 		7205FA692AB02C95008E6C4C /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA682AB02C95008E6C4C /* PhotoViewModel.swift */; };
 		7205FA6B2AB06138008E6C4C /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA6A2AB06138008E6C4C /* PhotoViewCell.swift */; };
+		7205FA7B2AB1C0DB008E6C4C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7205FA7A2AB1C0DB008E6C4C /* SnapKit */; };
+		7205FA7E2AB1C64D008E6C4C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7205FA7D2AB1C64D008E6C4C /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7205FA7E2AB1C64D008E6C4C /* Kingfisher in Frameworks */,
+				7205FA7B2AB1C0DB008E6C4C /* SnapKit in Frameworks */,
 				7205FA572AAFF35D008E6C4C /* RxSwift in Frameworks */,
 				7205FA552AAFF35D008E6C4C /* RxCocoa in Frameworks */,
 			);
@@ -171,6 +175,8 @@
 			packageProductDependencies = (
 				7205FA542AAFF35D008E6C4C /* RxCocoa */,
 				7205FA562AAFF35D008E6C4C /* RxSwift */,
+				7205FA7A2AB1C0DB008E6C4C /* SnapKit */,
+				7205FA7D2AB1C64D008E6C4C /* Kingfisher */,
 			);
 			productName = Unsplash;
 			productReference = 7205FA1C2AAE9944008E6C4C /* Unsplash.app */;
@@ -204,6 +210,8 @@
 			mainGroup = 7205FA132AAE9944008E6C4C;
 			packageReferences = (
 				7205FA532AAFF35C008E6C4C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7205FA792AB1C0DB008E6C4C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7205FA7C2AB1C64D008E6C4C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7205FA1D2AAE9944008E6C4C /* Products */;
 			projectDirPath = "";
@@ -499,6 +507,22 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		7205FA792AB1C0DB008E6C4C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		7205FA7C2AB1C64D008E6C4C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -511,6 +535,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7205FA532AAFF35C008E6C4C /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		7205FA7A2AB1C0DB008E6C4C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7205FA792AB1C0DB008E6C4C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		7205FA7D2AB1C64D008E6C4C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7205FA7C2AB1C64D008E6C4C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

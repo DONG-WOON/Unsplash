@@ -27,7 +27,7 @@ class PhotoViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(PhotoViewCell.self, forCellReuseIdentifier: "SampleCell")
+        tableView.register(PhotoViewCell.self, forCellReuseIdentifier: "PhotoViewCell")
     }
 }
 
@@ -37,11 +37,9 @@ extension PhotoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SampleCell") as? PhotoViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoViewCell") as? PhotoViewCell else { return UITableViewCell() }
         let data = viewModel.data(at: indexPath)
-        
         cell.update(data: data)
-        
         return cell
     }
 }
@@ -51,7 +49,7 @@ extension PhotoViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 150
     }
 }
 

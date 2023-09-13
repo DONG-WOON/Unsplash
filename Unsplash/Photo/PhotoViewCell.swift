@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import SnapKit
+import Kingfisher
 
 class PhotoViewCell: UITableViewCell {
     
+    let photoImageView = UIImageView()
+    let titleLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        var configuration = self.defaultContentConfiguration()
-        configuration.textProperties.font = .boldSystemFont(ofSize: 20)
-        
-        self.contentConfiguration = configuration
+    
+        configureViews()
+        setAttributes()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -26,25 +30,40 @@ class PhotoViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        photoImageView.image = nil
+        
     }
     
     func update(data: PhotoResult?) {
         backgroundColor = data != nil ? .gray : .clear
-        textLabel?.text = data?.id
-        Task {
-            let image = await loadImage(url: data?.urls.thumb)
-            self.imageView?.image = image
-        }
+        photoImageView.kf.setImage(with: URL(string: (data?.urls.thumb) ?? ""))
+        titleLabel.text = data?.id
+    }
+}
+
+extension PhotoViewCell {
+    func configureViews() {
+        contentView.addSubview(photoImageView)
+        contentView.addSubview(titleLabel)
     }
     
-    private func loadImage(url: String?) async -> UIImage? {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: URL(string: url!)!)
-            return UIImage(data: data)
-        } catch {
-            print(error)
+    func setAttributes() {
+        photoImageView.contentMode = .scaleAspectFill
+        photoImageView.clipsToBounds = true
+        titleLabel.numberOfLines = 1
+        titleLabel.font = .boldSystemFont(ofSize: 15)
+    }
+    
+    func setConstraints() {
+        photoImageView.snp.makeConstraints { make in
+            make.top.leading.bottom.equalTo(contentView).inset(10)
+            make.width.equalTo(photoImageView.snp.height).multipliedBy(1.2)
         }
-        return nil
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(photoImageView)
+            make.leading.equalTo(photoImageView.snp.trailing).offset(10)
+            make.trailing.greaterThanOrEqualTo(contentView).inset(10)
+        }
     }
 }
 
