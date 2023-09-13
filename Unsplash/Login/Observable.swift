@@ -8,10 +8,16 @@
 import Foundation
 
 protocol Disposable {
-    
+    func dispose()
+}
+
+extension Disposable {
+    func dispose() {
+    }
 }
 
 class Observable<Value>: Disposable {
+    
     var listener: ((Value) -> Void)?
     
     var value: Value {
@@ -29,9 +35,5 @@ class Observable<Value>: Disposable {
     func bind(_ listener: ((Value) -> Void)?) -> Disposable {
         self.listener = listener
         return self
-    }
-    
-    func dispose() {
-        
     }
 }

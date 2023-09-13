@@ -8,22 +8,21 @@
 import Foundation
 
 class PhotoViewModel {
-    
-    var photo = Observable(value: Photo(total: 0, total_pages: 0, results: []))
+    @Published var photo: Photo?
     
     var numberOfRowsInSection: Int {
-        photo.value.results?.count ?? 0
+        photo?.results?.count ?? 0
     }
     
     func fetch() {
         APIService.shared.searchPhoto(query: "sky") { photo in
             guard let photo else { return }
-            self.photo.value = photo
+            self.photo = photo
         }
     }
     
     func data(at indexPath: IndexPath) -> PhotoResult? {
-        let photoResult = photo.value.results?[indexPath.row]
+        let photoResult = photo?.results?[indexPath.row]
         return photoResult
     }
 }

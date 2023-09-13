@@ -6,29 +6,47 @@
 //
 
 import UIKit
+import Combine
 
 class PhotoViewController: UIViewController {
     
-    let viewModel = PhotoViewModel()
+    private let viewModel: PhotoViewModel
+    private var anyCancellable = [AnyCancellable]()
     
     @IBOutlet var tableView: UITableView!
-
+    
+    init(viewModel: PhotoViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = PhotoViewModel()
+        
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.fetch()
-        
-        viewModel.photo.bind { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        bindViewModel()
         
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(PhotoViewCell.self, forCellReuseIdentifier: "PhotoViewCell")
     }
+    
+    private func bindViewModel() {
+        viewModel.$photo
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.tableView.reloadData()
+            }.store(in: &anyCancellable)
+    }
+    
+    
 }
 
 extension PhotoViewController: UITableViewDataSource {
@@ -51,8 +69,4 @@ extension PhotoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-}
-
-extension UITableView {
-    
 }
