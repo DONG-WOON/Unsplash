@@ -25,15 +25,5 @@ class ViewController: UIViewController {
         resultLabel.text = ageDescription
         
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print(#function)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print(#function)
-    }
 }
 
