@@ -35,18 +35,19 @@ extension SampleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SampleCell")!
         
-        configure(cell) { [weak self] in
-            $0.text = self?.viewModel.user(at: indexPath).introduce
-            $0.textProperties.font = .boldSystemFont(ofSize: 20)
+        cell.configurationUpdateHandler = { [weak self] cell, state in
+            var content = cell.defaultContentConfiguration().updated(for: state)
+            content.text = self?.viewModel.user(at: indexPath).introduce
+            content.textProperties.font = .boldSystemFont(ofSize: 20)
+            
+            if state.isHighlighted {
+                cell.backgroundColor = .red
+            }
+            
+            cell.contentConfiguration = content
         }
         
         return cell
-    }
-    
-    func configure(_ cell: UITableViewCell, configure: ((inout UIListContentConfiguration) -> Void)? = nil) {
-        var configuration = cell.defaultContentConfiguration()
-        configure?(&configuration)
-        cell.contentConfiguration = configuration
     }
 }
 
