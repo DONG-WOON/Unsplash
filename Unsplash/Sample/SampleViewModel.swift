@@ -24,11 +24,19 @@ class SampleViewModel {
         list.value.count
     }
     
+    var numberOfItemsInSection: Int {
+        list.value.count
+    }
+    
     func user(at indexPath: IndexPath) -> User {
         return list.value[indexPath.row]
     }
     
     func addUser(at indexPath: IndexPath) {
         list.value.append(list.value[indexPath.row])
+    }
+    
+    func addUser(_ user:User) {
+        list.value.append(user)
     }
 }

@@ -31,6 +31,8 @@
 		7205FA6B2AB06138008E6C4C /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA6A2AB06138008E6C4C /* PhotoViewCell.swift */; };
 		7205FA7B2AB1C0DB008E6C4C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7205FA7A2AB1C0DB008E6C4C /* SnapKit */; };
 		7205FA7E2AB1C64D008E6C4C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7205FA7D2AB1C64D008E6C4C /* Kingfisher */; };
+		7205FA892AB29732008E6C4C /* SampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA882AB29732008E6C4C /* SampleTableViewController.swift */; };
+		7205FA8B2AB2A056008E6C4C /* SampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA8A2AB2A056008E6C4C /* SampleCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		7205FA662AB02B70008E6C4C /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		7205FA682AB02C95008E6C4C /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		7205FA6A2AB06138008E6C4C /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		7205FA882AB29732008E6C4C /* SampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTableViewController.swift; sourceTree = "<group>"; };
+		7205FA8A2AB2A056008E6C4C /* SampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 			children = (
 				7205FA582AAFFEAC008E6C4C /* SampleViewController.swift */,
 				7205FA5C2AB00157008E6C4C /* SampleViewModel.swift */,
+				7205FA882AB29732008E6C4C /* SampleTableViewController.swift */,
+				7205FA8A2AB2A056008E6C4C /* SampleCollectionViewController.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -251,10 +257,12 @@
 				7205FA5D2AB00157008E6C4C /* SampleViewModel.swift in Sources */,
 				7205FA202AAE9944008E6C4C /* AppDelegate.swift in Sources */,
 				7205FA5B2AAFFED3008E6C4C /* User.swift in Sources */,
+				7205FA8B2AB2A056008E6C4C /* SampleCollectionViewController.swift in Sources */,
 				7205FA432AAEB131008E6C4C /* StringKey.swift in Sources */,
 				7205FA642AB02A7D008E6C4C /* APIService.swift in Sources */,
 				7205FA592AAFFEAC008E6C4C /* SampleViewController.swift in Sources */,
 				7205FA672AB02B70008E6C4C /* PhotoViewController.swift in Sources */,
+				7205FA892AB29732008E6C4C /* SampleTableViewController.swift in Sources */,
 				7205FA5F2AB00E57008E6C4C /* LoginViewModel.swift in Sources */,
 				7205FA222AAE9944008E6C4C /* SceneDelegate.swift in Sources */,
 			);
