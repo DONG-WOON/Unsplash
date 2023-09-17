@@ -57,7 +57,6 @@ extension SampleCollectionViewController {
 }
 
 class SampleDataSource: UICollectionViewDiffableDataSource<Section, User> {
-    typealias CellProvider = UICollectionViewDiffableDataSourceReferenceCellProvider
     typealias CellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, User>
     
     init(collectionView: UICollectionView) {
@@ -80,12 +79,10 @@ class SampleDataSource: UICollectionViewDiffableDataSource<Section, User> {
             cell.backgroundConfiguration = backgroundConfiguration
         }
         
-        let cellProvider: CellProvider = { (collectionView, indexPath, item) in
+        super.init(collectionView: collectionView) { collectionView, indexPath, user in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
-                                                                    for: indexPath, item: item as? User)
+                                                                    for: indexPath, item: user)
             return cell
         }
-        
-        super.init(collectionView: collectionView, cellProvider: cellProvider)
     }
 }
